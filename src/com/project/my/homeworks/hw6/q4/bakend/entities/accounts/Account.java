@@ -1,8 +1,5 @@
 package com.project.my.homeworks.hw6.q4.bakend.entities.accounts;
 
-import com.project.my.homeworks.hw6.q4.bakend.entities.banks.Bank;
-import com.project.my.homeworks.hw6.q4.bakend.entities.users.Customer;
-
 public class Account {
     private long number;
     private double balance;
