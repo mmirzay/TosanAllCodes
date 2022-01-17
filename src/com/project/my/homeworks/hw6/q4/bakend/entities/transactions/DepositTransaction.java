@@ -9,4 +9,9 @@ public class DepositTransaction extends Transaction {
     protected TransactionType getType() {
         return TransactionType.DEPOSIT;
     }
+
+    @Override
+    public String toString() {
+        return super.toString().formatted(getType().toString()+ " to "+getSourceAccountNumber());
+    }
 }

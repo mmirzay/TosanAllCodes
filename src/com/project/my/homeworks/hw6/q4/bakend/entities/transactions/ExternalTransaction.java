@@ -11,4 +11,9 @@ public class ExternalTransaction extends Transaction {
     protected TransactionType getType() {
         return TransactionType.EXTERNAL;
     }
+
+    @Override
+    public String toString() {
+        return super.toString().formatted(getType().toString() + " from" + getSourceAccountNumber() + "to " + getDestinationAccountNumber());
+    }
 }

@@ -9,4 +9,9 @@ public class RechargingTransaction extends MobileBankTransaction {
     protected TransactionType getType() {
         return TransactionType.RECHARGING_CODE;
     }
+
+    @Override
+    public String toString() {
+        return super.toString().formatted(getType().toString() + " of " + getSourceAccountNumber());
+    }
 }

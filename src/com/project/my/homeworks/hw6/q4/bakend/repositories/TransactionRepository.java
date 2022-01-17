@@ -25,7 +25,7 @@ public class TransactionRepository {
 
     public List<Transaction> fetchAllTransactionsOfAccount(long accountNumber) {
         return transactions.stream()
-                .filter(t -> t.getSourceAccountNumber() == accountNumber)
+                .filter(t -> t.getSourceAccountNumber() == accountNumber || t.getDestinationAccountNumber() == accountNumber)
                 .collect(Collectors.toList());
     }
 }

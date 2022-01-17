@@ -9,4 +9,9 @@ public class InternalTransaction extends Transaction {
     protected TransactionType getType() {
         return TransactionType.INTERNAL;
     }
+
+    @Override
+    public String toString() {
+        return super.toString().formatted(getType().toString() + " from" + getSourceAccountNumber() + "to " + getDestinationAccountNumber());
+    }
 }

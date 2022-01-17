@@ -10,4 +10,9 @@ public class WithdrawTransaction extends Transaction {
     protected TransactionType getType() {
         return TransactionType.WITHDRAW;
     }
+
+    @Override
+    public String toString() {
+        return super.toString().formatted(getType().toString() + " of " + getSourceAccountNumber());
+    }
 }

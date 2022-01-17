@@ -3,7 +3,7 @@ package com.project.my.homeworks.hw6.q4.bakend.entities.transactions;
 import java.util.Date;
 import java.util.Objects;
 
-public abstract class Transaction {
+public abstract class Transaction implements Comparable<Date>{
 
     private Long srcAccountNumber;
     private Long destAccountNumber;
@@ -63,14 +63,12 @@ public abstract class Transaction {
 
     @Override
     public String toString() {
-        return getType().toString()+"{" +
-                "srcAccountNumber=" + srcAccountNumber +
-                ", destAccountNumber=" + destAccountNumber +
-                ", amount=" + amount +
-                ", date=" + date +
-                ", status=" + status +
-                ", message=" + message +
-                '}';
+        return "%s - amount: " + getAmount() + " - date: " + getDate().toString() + " - status: " + getStatus() + " - message: " + getMessage().toString();
+    }
+
+    @Override
+    public int compareTo(Date o) {
+        return this.date.compareTo(o);
     }
 
     protected abstract TransactionType getType();
