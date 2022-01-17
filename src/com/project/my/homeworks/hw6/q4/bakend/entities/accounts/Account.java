@@ -48,4 +48,20 @@ public class Account {
     public AccountStatus getStatus() {
         return status;
     }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public boolean isOpened() {
+        return status == AccountStatus.OPENED;
+    }
+
+    public void setOpened() {
+        status = AccountStatus.OPENED;
+    }
+
+    public void setClosed() {
+        status = AccountStatus.CLOSED;
+    }
 }
