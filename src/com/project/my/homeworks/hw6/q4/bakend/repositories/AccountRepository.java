@@ -44,11 +44,10 @@ public class AccountRepository {
                 .collect(Collectors.toList());
     }
 
-    public Account fetchAccountOfCustomerInBank(long nationalId, int bankCode) throws AccountException {
+    public List<Account> fetchAccountOfCustomerInBank(long nationalId, int bankCode) {
         return accounts.stream()
                 .filter(a -> a.getBankCode() == bankCode && a.getCustomerId() == nationalId)
-                .findFirst()
-                .orElseThrow(() -> new AccountException("account is not exist for the customer in this bank"));
+                .collect(Collectors.toList());
     }
 
     public boolean updateAccount(Account account) {
