@@ -1,7 +1,7 @@
 package com.project.my.homeworks.hw6.q4.bakend.entities.accounts;
 
 public final class Iban {
-    private final String CC = "IR";
+    private final static String CC = "IR";
 
     private long accountNumber;
     private int bankCode;
@@ -21,6 +21,7 @@ public final class Iban {
         String strAccountNumber = String.valueOf(accountNumber);
         strAccountNumber = "0".repeat(18 - strAccountNumber.length()) + strAccountNumber;
         cd = (int) (98 - accountNumber % 97) + "";
+        cd = "0".repeat(2 - cd.length()) + cd;
         type = IbanType.DEPOSIT;
         String strType = type.getValue() + "";
         bban = strBankCode + strType + strAccountNumber;
@@ -46,5 +47,19 @@ public final class Iban {
     @Override
     public String toString() {
         return getValue();
+    }
+
+    public static long convertToAccountNumber(String iban) {
+        if (iban.length() != 26)
+            return 0;
+        if (iban.startsWith(CC) == false)
+            return 0;
+        String strAccountNumber = iban.substring(8);
+
+        try {
+            return Long.parseLong(strAccountNumber);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }
