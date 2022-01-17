@@ -4,21 +4,21 @@ import java.util.Date;
 
 public abstract class Transaction {
 
-    private long srcAccountNumber;
+    private Long srcAccountNumber;
     private Long destAccountNumber;
     private double amount;
     private Date date;
     private TransactionStatus status;
-    private String description;
+    private TransactionMessage message;
 
-    public Transaction(long srcAccountNumber, Long destAccountNumber, double amount) {
+    public Transaction(Long srcAccountNumber, Long destAccountNumber, double amount) {
         this.srcAccountNumber = srcAccountNumber;
         this.destAccountNumber = destAccountNumber;
         this.amount = amount;
         this.date = new Date();
     }
 
-    public long getSourceAccountNumber() {
+    public Long getSourceAccountNumber() {
         return srcAccountNumber;
     }
 
@@ -38,15 +38,12 @@ public abstract class Transaction {
         return status;
     }
 
-    public void setStatus(TransactionStatus status) {
-        this.status = status;
+    public TransactionMessage getMessage() {
+        return message;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMessage(TransactionMessage message) {
+        this.message = message;
+        status = message == TransactionMessage.VALID_TRANSACTION? TransactionStatus.SUCCESSFUL : TransactionStatus.FAILED;
     }
 }
