@@ -16,4 +16,9 @@ public class Bank {
     public int getCode() {
         return code;
     }
+
+    @Override
+    public String toString() {
+        return "Bank " + name + " - Code: " + code;
+    }
 }
