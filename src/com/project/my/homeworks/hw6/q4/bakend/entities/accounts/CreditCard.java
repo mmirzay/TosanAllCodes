@@ -63,8 +63,11 @@ public class CreditCard {
         status = CreditCardStatus.INACTIVE;
     }
 
-    public void setExpired(){
-        status = CreditCardStatus.EXPIRED;
+    public void setFirstPassword(String firstPassword) {
+        this.firstPassword = firstPassword;
     }
 
+    public void setStatus(CreditCardStatus status) {
+        this.status = status;
+    }
 }
