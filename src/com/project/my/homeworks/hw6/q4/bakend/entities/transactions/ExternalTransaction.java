@@ -6,4 +6,9 @@ public class ExternalTransaction extends Transaction {
     public ExternalTransaction(Iban srcIban, Iban destIban, double amount) {
         super(srcIban.getAccountNumber(), destIban.getAccountNumber(), amount);
     }
+
+    @Override
+    protected TransactionType getType() {
+        return TransactionType.EXTERNAL;
+    }
 }

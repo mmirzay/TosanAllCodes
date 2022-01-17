@@ -1,6 +1,7 @@
 package com.project.my.homeworks.hw6.q4.bakend.entities.transactions;
 
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Transaction {
 
@@ -44,6 +45,33 @@ public abstract class Transaction {
 
     public void setMessage(TransactionMessage message) {
         this.message = message;
-        status = message == TransactionMessage.VALID_TRANSACTION? TransactionStatus.SUCCESSFUL : TransactionStatus.FAILED;
+        status = message == TransactionMessage.VALID_TRANSACTION ? TransactionStatus.SUCCESSFUL : TransactionStatus.FAILED;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return Objects.equals(srcAccountNumber, that.srcAccountNumber) && Objects.equals(destAccountNumber, that.destAccountNumber) && Objects.equals(date, that.date) && status == that.status && message == that.message;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(srcAccountNumber, destAccountNumber, date, status, message);
+    }
+
+    @Override
+    public String toString() {
+        return getType().toString()+"{" +
+                "srcAccountNumber=" + srcAccountNumber +
+                ", destAccountNumber=" + destAccountNumber +
+                ", amount=" + amount +
+                ", date=" + date +
+                ", status=" + status +
+                ", message=" + message +
+                '}';
+    }
+
+    protected abstract TransactionType getType();
 }

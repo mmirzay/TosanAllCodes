@@ -20,4 +20,9 @@ public class ExpireDate {
     public static ExpireDate of(int year, int month) {
         return new ExpireDate(year, month);
     }
+
+    @Override
+    public String toString() {
+        return year + " / " + month;
+    }
 }

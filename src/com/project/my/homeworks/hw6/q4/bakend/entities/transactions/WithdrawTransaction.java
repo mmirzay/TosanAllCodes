@@ -6,4 +6,8 @@ public class WithdrawTransaction extends Transaction {
         super(srcAccountNumber, null, amount);
     }
 
+    @Override
+    protected TransactionType getType() {
+        return TransactionType.WITHDRAW;
+    }
 }

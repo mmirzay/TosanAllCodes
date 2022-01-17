@@ -42,4 +42,9 @@ public final class Iban {
     public int getBankCode() {
         return bankCode;
     }
+
+    @Override
+    public String toString() {
+        return getValue();
+    }
 }
