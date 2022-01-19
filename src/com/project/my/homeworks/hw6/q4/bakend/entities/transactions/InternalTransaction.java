@@ -12,6 +12,6 @@ public class InternalTransaction extends Transaction {
 
     @Override
     public String toString() {
-        return super.toString().formatted(getType().toString() + " from" + getSourceAccountNumber() + "to " + getDestinationAccountNumber());
+        return super.toString().formatted(getType().toString() + " from " + getSourceAccountNumber() + " to " + getDestinationAccountNumber());
     }
 }

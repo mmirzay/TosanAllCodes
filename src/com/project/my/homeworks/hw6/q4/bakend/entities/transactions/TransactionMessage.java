@@ -6,7 +6,7 @@ public enum TransactionMessage {
     INVALID_BALANCE("account balance is NOT enough"),
     INVALID_DESTINATION("destination account is NOT valid"),
     INVALID_TRANSACTION("system failed while doing transaction"),
-    VALID_TRANSACTION("transaction is valid.");
+    VALID_TRANSACTION("transaction is done successfully.");
 
     private String description;
 

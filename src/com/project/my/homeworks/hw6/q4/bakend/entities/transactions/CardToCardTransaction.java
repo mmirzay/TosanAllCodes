@@ -20,7 +20,7 @@ public class CardToCardTransaction extends MobileBankTransaction {
 
     @Override
     public String toString() {
-        return super.toString().formatted(getType().toString() + " from" + sourceCardNumber + "to " + destinationCardNumber);
+        return super.toString().formatted(getType().toString() + " from " + sourceCardNumber + " to " + destinationCardNumber);
     }
 
 }
