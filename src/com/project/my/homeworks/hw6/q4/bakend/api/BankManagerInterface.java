@@ -56,4 +56,27 @@ public interface BankManagerInterface {
 
     boolean reactivateCreditCard(String cardNumber);
 
+    String addDepositTransaction(long nationalId, int bankCode, DepositTransaction transaction);
+
+    String addWithdrawTransaction(long nationalId, int bankCode, WithdrawTransaction transaction);
+
+    String addInternalTransaction(long nationalId, int bankCode, InternalTransaction transaction);
+
+    String addExternalTransaction(ExternalTransaction transaction);
+
+    String addCardToCardTransaction(CardToCardTransaction transaction);
+
+    String addRechargingTransaction(RechargingTransaction transaction);
+
+    List<Transaction> getAllTransactions();
+
+    List<Transaction> getAllTransactionsOfCustomer(long nationalId);
+
+    List<Transaction> getAllTransactionsOfCustomerInBank(long nationalId, int bankCode);
+
+    List<Transaction> getAllTransactionsOfBank(int bankCode);
+
+    List<Transaction> getAllTransactionsOfAccount(long accountNumber);
+
+    List<Transaction> getAllTransactionsOfCreditCard(String cardNumber);
 }
