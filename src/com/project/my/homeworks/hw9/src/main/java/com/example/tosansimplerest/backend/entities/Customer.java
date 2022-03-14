@@ -2,11 +2,26 @@ package com.example.tosansimplerest.backend.entities;
 
 import lombok.*;
 
-@AllArgsConstructor
+import javax.persistence.*;
+
+@Entity
 @NoArgsConstructor
 @Data
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long code;
+
     private String fullName;
-    private String nationalId;
-    private String code;
+    @Column(nullable = false, unique = true)
+    private Long nationalId;
+
+    private Customer(String fullName, Long nationalId) {
+        this.fullName = fullName;
+        this.nationalId = nationalId;
+    }
+
+    public static Customer of(String fullName, Long nationalId) {
+        return new Customer(fullName, nationalId);
+    }
 }
