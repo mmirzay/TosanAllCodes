@@ -48,9 +48,9 @@ public class CustomerService {
         return true;
     }
 
-    public void deleteCustomerById(Long id) throws CustomerException {
+    public void deleteCustomerByCode(Long code) throws CustomerException {
         try {
-            repository.deleteById(id);
+            repository.deleteById(code);
         } catch (DataIntegrityViolationException e) {
             if (e.getRootCause() instanceof SQLIntegrityConstraintViolationException)
                 throw new CustomerException("Customer has at least one deposit.");
